@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('To Do List'),
+        title: const Text('To Do List'),
       ),
       bottomNavigationBar: BottomAppBar(
         child: BottomNavigationBar(
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
               currentIndex = value;
             });
           } ,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.list),
               label: ""
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,),
       ),

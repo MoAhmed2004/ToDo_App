@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
     double height = MediaQuery.of(context).size.height;
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
           image: AssetImage('assets/images/back.png'),
@@ -50,9 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text('Login'),
+          title: const Text('Login'),
           centerTitle: true,
-          titleTextStyle: TextStyle(
+          titleTextStyle: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextButton(
                         onPressed: (){
                       Navigator.of(context).pushNamed(RegisterScreen.routeName);
-                    }, child: Text(
+                    }, child: const Text(
                       "OR Create Account")),
 
 

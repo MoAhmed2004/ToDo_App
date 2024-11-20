@@ -3,7 +3,7 @@ import 'package:todo/style/AppColors.dart';
 
 class AppStyle{
   static ThemeData lightTheme = ThemeData(
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.lightPrimary,
       titleTextStyle: TextStyle(
         color: Colors.white,
@@ -13,7 +13,7 @@ class AppStyle{
       toolbarHeight: 157,
     ),
     scaffoldBackgroundColor: AppColors.lightBackGround,
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       labelSmall: TextStyle(
         fontSize: 12,
         color: AppColors.labelColor,

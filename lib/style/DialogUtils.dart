@@ -5,7 +5,7 @@ class DialogUtils{
   showDialog(context: context, builder: (context) =>AlertDialog(
   content: SizedBox(
   height: MediaQuery.of(context).size.height*0.1,
-  child: Center(
+  child: const Center(
   child: CircularProgressIndicator(),
   ),
   ),
