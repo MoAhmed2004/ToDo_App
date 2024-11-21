@@ -49,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colors.transparent,
           title: const Text('Login'),
           centerTitle: true,

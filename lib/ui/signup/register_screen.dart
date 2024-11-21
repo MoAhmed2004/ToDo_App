@@ -17,6 +17,7 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   late TextEditingController nameController;
+  late TextEditingController ageController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController passwordConfirmationController;
@@ -27,6 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     // TODO: implement initState
     super.initState();
     nameController=TextEditingController();
+    ageController=TextEditingController();
     emailController=TextEditingController();
     passwordController=TextEditingController();
     passwordConfirmationController=TextEditingController();
@@ -36,6 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   dispose(){
     super.dispose();
     nameController.dispose();
+    ageController.dispose();
     emailController.dispose();
     passwordController.dispose();
     passwordConfirmationController.dispose();
@@ -54,6 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text('Create Account'),
           centerTitle: true,
@@ -92,25 +96,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
 
                     SizedBox(height: height*0.02,),
-                    Customformfield(label:"Password" ,
-                        keyboard: TextInputType.visiblePassword,
-                        controller: passwordController,
-                    isPassword: true,
-                    validator: (value){
-                      if(value==null || value.isEmpty){
-                        return 'Please Enter Password';
-                      }
-                      if(value.length<8){
-                        return 'Password must be at least 8 characters';
-                      }
-                      return null;
-                      },),
-                    SizedBox(height: height*0.02,),
-                    Customformfield(label:"Password Confirmation" ,
-                        keyboard: TextInputType.visiblePassword,
-                        controller: passwordConfirmationController,
-                    isPassword: true,
-                      validator: (value){
+                    Customformfield(label:"Age" ,
+                        keyboard: TextInputType.number,
+                        controller: ageController,
+                        validator:(value){
+                      Validation.nameValidator(value,
+                          "Please Enter Your Age");
+
+                    }),
+                          SizedBox(height: height*0.02,),
+                          Customformfield(label:"Password" ,
+                          keyboard: TextInputType.visiblePassword,
+                          controller: passwordController,
+                          isPassword: true,
+                          validator: (value){
+                          if(value==null || value.isEmpty){
+                          return 'Please Enter Password';
+                          }
+                          if(value.length<8){
+                          return 'Password must be at least 8 characters';
+                          }
+                          return null;
+                          },),
+                          SizedBox(height: height*0.02,),
+                          Customformfield(label:"Password Confirmation" ,
+                          keyboard: TextInputType.visiblePassword,
+                          controller: passwordConfirmationController,
+                          isPassword: true,
+                          validator: (value)
+                        {
                         if(value==null || value.isEmpty){
                           return 'Please Enter Password';
                         }

@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/ui/home/widgets/tabs/settings_tab.dart';
 import 'package:todo/ui/home/widgets/tabs/tasks_tab.dart';
+import 'package:todo/ui/login/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -20,10 +22,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: (){
+              FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+            },
+            icon: const Icon(Icons.logout),
+          )
+        ],
         title: const Text('To Do List'),
       ),
       bottomNavigationBar: BottomAppBar(
+        notchMargin: 10,
+        shape: const CircularNotchedRectangle(),
         child: BottomNavigationBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           currentIndex:currentIndex,
           onTap: (value) {
             setState(() {
@@ -32,11 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
           } ,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.list),
+              icon: Icon(Icons.list,size: 30,),
               label: ""
             ) ,
           BottomNavigationBarItem(
-              icon:Icon(Icons.settings,),
+              icon:Icon(Icons.settings,size: 30,),
           label: ""
           ),
           ],

@@ -32,6 +32,17 @@ class AppStyle{
     colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.lightPrimary,
         primary: AppColors.lightPrimary,
+    ),
+    useMaterial3: false,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: AppColors.lightPrimary,
+      shape: StadiumBorder(
+        side: BorderSide(
+          color: Colors.white,
+          width: 4,
+
+        )
+      )
     )
   );
 }
