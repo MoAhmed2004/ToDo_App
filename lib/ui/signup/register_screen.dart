@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/firebase/fireStore_handler.dart';
 import 'package:todo/firebase/firebaseAuthCodes.dart';
 import 'package:todo/style/DialogUtils.dart';
 import 'package:todo/style/reusable_components/customElevatedButton.dart';
 import 'package:todo/style/reusable_components/customFormField.dart';
 import 'package:todo/style/reusable_components/validation.dart';
 import 'package:todo/ui/home/home_screen.dart';
+import 'package:todo/firebase/model/user.dart'as MyUser;
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -158,6 +160,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
          email:emailController.text ,
          password: passwordController.text
      );
+     await FireStoreHandler.createUser(MyUser.User(
+       Id: userCredential.user!.uid,
+        Name: nameController.text,
+        Age: int.parse(ageController.text),
+        Email: emailController.text
+     ));
       Navigator.of(context).pop();
       Navigator.of(context).pushNamedAndRemoveUntil(
         HomeScreen.routeName,(route) => false,);
