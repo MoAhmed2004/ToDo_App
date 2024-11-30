@@ -15,7 +15,7 @@ class FireStoreHandler{
   }
   static Future<void> createUser(User user){
     var colleection = getUserCollection();
-   var docRef = colleection.doc(user.Id);
+   var docRef = colleection.doc(user.id);
    return docRef.set(user);
   }
 }

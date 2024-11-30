@@ -102,9 +102,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         keyboard: TextInputType.number,
                         controller: ageController,
                         validator:(value){
-                      Validation.nameValidator(value,
-                          "Please Enter Your Age");
-
+                          if(value==null || value.isEmpty){
+                            return 'Please Enter Age';
+                          }
+                          return null;
                     }),
                           SizedBox(height: height*0.02,),
                           Customformfield(label:"Password" ,
@@ -161,10 +162,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
          password: passwordController.text
      );
      await FireStoreHandler.createUser(MyUser.User(
-       Id: userCredential.user!.uid,
-        Name: nameController.text,
-        Age: int.parse(ageController.text),
-        Email: emailController.text
+       id: userCredential.user!.uid,
+        name: nameController.text,
+        age: int.parse(ageController.text),
+        email: emailController.text
      ));
       Navigator.of(context).pop();
       Navigator.of(context).pushNamedAndRemoveUntil(
@@ -188,6 +189,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
        );
      }
    }
+
    catch(e){
 
    }

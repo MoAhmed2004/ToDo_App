@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/ui/home/widgets/addTask.dart';
 import 'package:todo/ui/home/widgets/tabs/settings_tab.dart';
 import 'package:todo/ui/home/widgets/tabs/tasks_tab.dart';
 import 'package:todo/ui/login/login_screen.dart';
@@ -60,7 +61,18 @@ class _HomeScreenState extends State<HomeScreen> {
       body: tabs[currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          showModalBottomSheet(
+            isScrollControlled: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+            ),
+            context: context,
+              builder:(context) =>AddTask() , );
+        },
         child: const Icon(
           Icons.add,
           color: Colors.white,),

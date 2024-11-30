@@ -6,11 +6,14 @@ class Customformfield extends StatefulWidget {
   final TextEditingController controller;
   final bool isPassword;
   final validation validator;
+  final int? maxlines;
+
   const Customformfield({required this.label,
     required this.keyboard,
     required this.controller,
     this.isPassword = false,
-    required this.validator
+    required this.validator,
+    this.maxlines = 1,
   });
 
   @override
@@ -27,6 +30,7 @@ bool isVisible = true;
       obscureText: widget.isPassword
           ?isVisible
           :false,
+      maxLines: widget.maxlines,
       obscuringCharacter: '*',
       keyboardType: widget.keyboard,
       controller:widget.controller,

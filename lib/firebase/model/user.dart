@@ -1,23 +1,23 @@
 class User{
   static const String collectionName="User";
-  String? Id;
-  String? Name;
-  String? Email;
-  int? Age;
-  User({this.Id,this.Name,this.Email,this.Age});
+  String? id;
+  String? name;
+  String? email;
+  int? age;
+  User({this.id,this.name,this.email,this.age});
 
   User.fromFireStore(Map<String,dynamic>? data){
-    Id= data?["id"];
-    Name= data?["name"];
-    Email= data?["email"];
-    Age= data?["age"];
+    id= data?["id"];
+    name= data?["name"];
+    email= data?["email"];
+    age= data?["age"];
   }
   Map<String,dynamic>tofireStore(){
     return{
-      "id":Id,
-      "name":Name,
-      "email":Email,
-      "age":Age
+      "id":id,
+      "name":name,
+      "email":email,
+      "age":age
     };
   }
 }
